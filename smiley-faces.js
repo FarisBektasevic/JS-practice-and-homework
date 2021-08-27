@@ -30,4 +30,4 @@ function countSmileys(arr) {
         }
     }
     return counter
-    }
+}
