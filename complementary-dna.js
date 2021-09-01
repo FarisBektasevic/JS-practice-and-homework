@@ -26,4 +26,5 @@ function DNAStrand(dna){
             }
         }
     
-        return localDNA.join('')}
+        return localDNA.join('')
+    }
