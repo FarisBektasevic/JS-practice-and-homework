@@ -12,4 +12,5 @@ for (let  i = 0;  i < niz.length;  i++) {
         }
     }
 }
+
 console.log(niz)

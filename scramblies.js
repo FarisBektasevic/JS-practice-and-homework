@@ -20,7 +20,7 @@ function scramble(str1, str2) {
         if(array2[i] === array1[i]) {
             index++;
         }
-    }
+    } 
 
     if (i <= array1.length){
         return true
