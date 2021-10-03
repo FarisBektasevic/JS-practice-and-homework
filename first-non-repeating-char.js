@@ -1,4 +1,3 @@
-
 // First non-repeating character
 
 // Write a function named first_non_repeating_letter that takes a string input,
@@ -6,24 +5,23 @@
 // For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string,
 //  and occurs first in the string.
 // As an added challenge, upper- and lowercase letters are considered the same character,
-//  but the function should return the correct case for the initial letter. 
+//  but the function should return the correct case for the initial letter.
 // For example, the input 'sTreSS' should return 'T'.
-// If a string contains all repeating characters, it should return an empty string ("") or None 
+// If a string contains all repeating characters, it should return an empty string ("") or None
 
 function firstNonRepeatingLetter(s) {
-    for (let i = 0; i < s.length; i++){
-      
-       let checkedPart = s.slice(i + 1).toLowerCase().split('')
-   
-       if (i > 0) {
-           checkedPart = checkedPart.concat(s.slice(0, i).toLowerCase().split(''))
-       }
-   
-       if( !checkedPart.includes(s[i].toLowerCase())){
-           return s[i]
-       }
-    }
-    return ''
+  for (let i = 0; i < s.length; i++) {
+    let checkedPart = s
+      .slice(i + 1)
+      .toLowerCase()
+      .split('')
+
+    if (i > 0)
+      checkedPart = checkedPart.concat(s.slice(0, i).toLowerCase().split(''))
+
+    if (!checkedPart.includes(s[i].toLowerCase())) return s[i]
+  }
+  return ''
 }
 
 console.log(firstNonRepeatingLetter('sTresS'))
