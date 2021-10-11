@@ -10,23 +10,34 @@
 // 1                 -->  "1"
 
 function toUnderscore(string) {
-  string = string.toString()
-  string = string.split('')
-  string[0] = string[0].toLowerCase()
-  for (let i = 0; i < string.length; i++) {
-    if (parseInt(string[i])) {
-      continue
-    }
-
-    if (string[i] === string[i].toUpperCase()) {
-      string[i] = string[i].toLowerCase()
-      string.splice(i, 0, '_')
-    }
-  }
-  return string.join('')
+  if (parseInt(string)) return string.toString()
+  let snake_case = [...string].map((letter) => {
+    return letter === letter.toUpperCase() && !parseInt(letter)
+      ? '_' + letter.toLowerCase()
+      : letter
+  })
+  return snake_case[0].split('_').join('') + snake_case.slice(1).join('')
 }
 
 console.log(toUnderscore('TestController'))
 console.log(toUnderscore('MoviesAndBooks'))
 console.log(toUnderscore('App7Test'))
 console.log(toUnderscore(1))
+// OLD SOLUTION
+
+// function toUnderscore(string) {
+//   string = string.toString()
+//   string = string.split('')
+//   string[0] = string[0].toLowerCase()
+//   for (let i = 0; i < string.length; i++) {
+//     if (parseInt(string[i])) {
+//       continue
+//     }
+
+//     if (string[i] === string[i].toUpperCase()) {
+//       string[i] = string[i].toLowerCase()
+//       string.splice(i, 0, '_')
+//     }
+//   }
+//   return string.join('')
+// }
