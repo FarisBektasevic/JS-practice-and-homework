@@ -7,10 +7,10 @@
 let str = 'This is an example!'
 
 function reverseWords(str) {
-    return str.split(' ').map( word => {
-        return word.split('').reverse().join('');
-    }).join(' ');
+  return str
+    .split(' ')
+    .map((word) => [...word].reverse().join(''))
+    .join(' ')
 }
 
 console.log(reverseWords(str))
-
